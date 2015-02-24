@@ -6,21 +6,22 @@
     = album_form.text_field :description
 
   hr
-  = album_form.fields_for :images do |img_f|
-    - unless img_f.object.new_record?
-      .form-inputs
-        = image_tag img_f.object.send(:picture).send :url, :thumb 
-      .form-inputs
-        | Delete: 
-        = img_f.check_box :_destroy
+  #images 
+    = album_form.fields_for :images do |img_f|
+      - unless img_f.object.new_record?
+        .form-inputs
+          = image_tag img_f.object.send(:picture).send :url, :thumb 
+        .form-inputs
+          | Delete: 
+          = img_f.check_box :_destroy
 
-    = img_f.file_field :picture
-    .form-inputs
-      = img_f.text_field :description
-    hr 
-    
-  .form-actions
-    = album_form.button :submit
+      = img_f.file_field :picture
+      .form-inputs
+        = img_f.text_field :description
+      hr 
+
+    .form-actions
+      = album_form.button :submit
 
 / = simple_form_for @album do |f| 
 /   = f.input :title
