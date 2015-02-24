@@ -1,0 +1,6 @@
+= fields_for 'album[images_attributes]', @album.images.build, index: Time.now.to_i do |img_f|
+  .form-inputs
+    = img_f.file_field :picture
+  .form-inputs
+    = img_f.text_field :description
+  hr 

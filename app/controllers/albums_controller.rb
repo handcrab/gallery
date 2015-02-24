@@ -19,6 +19,18 @@ class AlbumsController < ApplicationController
   # GET /albums/1/edit
   def edit    
     @album.images.build
+    
+    respond_to do |format|
+      format.html
+      format.js
+    end 
+  end
+
+  def append_image
+    @album ||= Album.new
+    respond_to do |format|
+      format.js
+    end
   end
 
   # POST /albums

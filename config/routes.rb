@@ -2,9 +2,10 @@ Rails.application.routes.draw do
   resources :images
 
   resources :albums do
+    # get 'append_image', on: :member
     resources :images
   end
-
+  get 'append_image' => 'albums#append_image'
   resources :pages, except: :index
   
   root 'pages#welcome'

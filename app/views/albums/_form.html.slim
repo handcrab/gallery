@@ -20,8 +20,11 @@
         = img_f.text_field :description
       hr 
 
+    = link_to 'More Images', append_image_path, remote: true
+    hr
+
     .form-actions
-      = album_form.button :submit
+      = album_form.submit
 
 / = simple_form_for @album do |f| 
 /   = f.input :title
