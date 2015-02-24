@@ -10,8 +10,11 @@ class PagesController < ApplicationController
     @page = Page.where("title like ?", "%welcome%").first
     if @page
       render :show 
-    else 
-      redirect_to new_page_path, alert: 'Create a welcome page first!'
+    else
+      @page = Page.new title: 'Welcome' 
+      # redirect_to new_page_path, alert: 'Create a welcome page first!'
+      flash.now[:alert]= 'Create a welcome page first!'
+      render :new
     end
   end
 
