@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
   resources :images
 
-  resources :albums
+  resources :albums do
+    resources :images
+  end
+
   resources :pages, except: :index
   
   root 'pages#welcome'

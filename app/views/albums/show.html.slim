@@ -2,6 +2,8 @@ article
   h1= @album.title
   p= @album.description
 
+  = render @album.images
+
   = link_to 'Edit', edit_album_path(@album)
   '|
   = link_to 'Delete', @album, method: :delete, data: { confirm: 'Are you sure?' }

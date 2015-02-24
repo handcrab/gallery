@@ -1,9 +1,37 @@
-= simple_form_for(@album) do |f|
-  = f.error_notification
+= form_for @album do |album_form|
+  - #album_form.error_notification
 
   .form-inputs
-    = f.input :title
-    = f.input :description
+    = album_form.text_field :title
+    = album_form.text_field :description
 
+  hr
+  = album_form.fields_for :images do |img_f|
+    - unless img_f.object.new_record?
+      .form-inputs
+        = image_tag img_f.object.send(:picture).send :url, :thumb 
+      .form-inputs
+        | Delete: 
+        = img_f.check_box :_destroy
+
+    = img_f.file_field :picture
+    .form-inputs
+      = img_f.text_field :description
+    hr 
+    
   .form-actions
-    = f.button :submit
+    = album_form.button :submit
+
+/ = simple_form_for @album do |f| 
+/   = f.input :title
+/   = f.input :description
+
+/   =f.simple_fields_for :images do |imgf|    
+/     p.pic
+/       = image_tag imgf.object.send(:picture).send :url, :thumb
+/       / picture.
+/       = imgf.input :picture
+/     = imgf.input :description
+
+/   - #f.association :images
+/   = f.button :submit 
