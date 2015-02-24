@@ -34,6 +34,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'slim-rails'
 gem 'simple_form'
+gem 'hirb', group: :development
 
 gem 'paperclip'
 group :development, :test do
