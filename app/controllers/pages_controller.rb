@@ -6,7 +6,13 @@ class PagesController < ApplicationController
   end
 
   def welcome
-    # @page = Page.find
+    # @page = Page.find_by title: 'welcome'
+    @page = Page.where("title like ?", "%welcome%").first
+    if @page
+      render :show 
+    else 
+      redirect_to new_page_path, alert: 'Create a welcome page first!'
+    end
   end
 
   # GET /pages/new
@@ -46,7 +52,7 @@ class PagesController < ApplicationController
   def destroy
     @page.destroy
     respond_to do |format|
-      format.html { redirect_to pages_url, notice: 'Page was successfully destroyed.' }
+      format.html { redirect_to root_path, notice: 'Page was successfully destroyed.' }
     end
   end
 
