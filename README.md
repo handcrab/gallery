@@ -1,7 +1,7 @@
 Dummy gallery rails app #learning
 
 # Features
-- Static pages
+- Static pages with seo names
 - Admin can create galleries with multiple images
 
 # Setup
