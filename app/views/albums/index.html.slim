@@ -3,12 +3,14 @@ h1 All albums
 - @albums.each do |album|
     .article
       h1= link_to album.title, album     
+      p = album.description
 
       - if album.images.any?
         .images
-          - album.images.limit(2).each do |img|
-            = image_tag img.picture.url(:thumb)
-      p = album.description
+          = link_to album do         
+            - album.images.limit(3).each do |img|
+              = image_tag img.picture.url(:thumb) 
+
       hr
 
 = content_for :navbar_right
