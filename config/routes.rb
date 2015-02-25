@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
-  resources :images
-
+  # resources :images
+  get 'images' => 'images#index'
+  
   resources :albums do
     # get 'append_image', on: :member
     resources :images
