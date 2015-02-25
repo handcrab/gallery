@@ -1,6 +1,10 @@
 article
   h1 All images
-
-  = render @images
+  #links
+    = render @images
 
 - # link_to 'New Image', new_image_path
+= render 'shared/gallery'
+
+- content_for :bottom do  
+  -# javascript_include_tag '/vendor/assets/gallery/js/bootstrap-image-gallery.min'

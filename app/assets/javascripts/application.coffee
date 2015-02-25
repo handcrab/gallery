@@ -1,5 +1,7 @@
 # = require jquery
 # = require jquery_ujs
+# = require bootstrap-sprockets
+# = require js/bootstrap-image-gallery.min.js
 # = require turbolinks
 # = require_tree .
 
@@ -10,4 +12,3 @@
 
 # $(document).ready init
 # $(document).on 'page:load', init
-

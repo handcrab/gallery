@@ -1,3 +1,6 @@
-figure.image
-  = image_tag image.picture.url(:medium)
-  figcaption= image.description 
+/ figure.image
+/   = image_tag image.picture.url(:medium)
+/   figcaption= image.description 
+
+= link_to image.picture.url(:large), title: image.description ,data: {gallery: ''} do
+  = image_tag image.picture.url(:thumb)
