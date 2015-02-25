@@ -1,1 +1,1 @@
-$('#images .form-inputs').last().append "<p> <%=j render 'image_fields' %> </p>"
+$('#images').last().append "<div> <%=j render 'image_fields' %> </div>"

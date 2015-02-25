@@ -1,23 +1,17 @@
-h1 Listing albums
+h1 All albums
 
-table
-  thead
-    tr
-      th Title
-      th Description
-      th
-      th
-      th
+- @albums.each do |album|
+    .article
+      h1= link_to album.title, album     
 
-  tbody
-    - @albums.each do |album|
-      tr
-        td = album.title
-        td = album.description
-        td = link_to 'Show', album
-        td = link_to 'Edit', edit_album_path(album)
-        td = link_to 'Destroy', album, data: {:confirm => 'Are you sure?'}, method: :delete
+      - if album.images.any?
+        .images
+          - album.images.limit(2).each do |img|
+            = image_tag img.picture.url(:thumb)
+      p = album.description
+      hr
 
-br
+= content_for :navbar_right
+  = link_to 'New Album', new_album_path, class: 'btn btn-primary navbar-btn'
 
-= link_to 'New Album', new_album_path
+= link_to 'New Album', new_album_path, class: 'btn btn-primary'

@@ -1,5 +1,11 @@
 = fields_for 'album[images_attributes]', @album.images.build, index: Time.now.to_i do |img_f|
-  .form-inputs
-    = img_f.file_field :picture
-  .form-inputs
-    = img_f.text_field :description  
+  .panel.panel-default
+    .panel-heading
+      | Image
+    .panel-body
+      .form-group
+        = img_f.label :picture, 'Add picture'
+        = img_f.file_field :picture        
+      .form-group.form-inputs
+        = img_f.label :description, 'Picture title'
+        = img_f.text_field :description, class: 'form-control'

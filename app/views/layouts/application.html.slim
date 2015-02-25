@@ -8,19 +8,29 @@ html
     = javascript_include_tag 'application', 'data-turbolinks-track' => true    
     = csrf_meta_tags
   body
-    nav
-      ul
-        li= link_to 'Home', root_path
-        li= link_to 'Albums',albums_path
-        li= link_to 'About', '/pages/about'
 
-    - if notice
-      p#notice= notice
-    - if alert
-      p#alert= alert
+    nav.navbar.navbar-default
+      .container
+        .navbar-header
+          = link_to 'Simple Gallery', root_path, class: 'navbar-brand'
+        ul.nav.navbar-nav
+          li(class="#{'active' if current_page?(albums_path)}")= link_to 'Albums', albums_path
+          li(class="#{'active' if current_page?('/pages/about')}")= link_to 'About', '/pages/about'
+        ul.nav.navbar-nav.navbar-right
+          = yield :navbar_right
 
-    = yield
+    article.container    
+      .row
+        = render 'shared/notice'
+        / - if notice
+        /   p#notice= notice
+        / - if alert
+        /   p#alert= alert
 
-    = javascript_include_tag "//blueimp.github.io/Gallery/js/jquery.blueimp-gallery.min.js"
-    = yield :bottom    
-    
+        = yield
+
+        = javascript_include_tag "//blueimp.github.io/Gallery/js/jquery.blueimp-gallery.min.js"
+        = yield :bottom   
+
+    footer 
+          

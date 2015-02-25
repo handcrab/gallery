@@ -2,30 +2,40 @@
   - #album_form.error_notification
 
   .form-inputs
-    = album_form.text_field :title
-    = album_form.text_field :description
+    .form-group
+      = album_form.label :title
+      = album_form.text_field :title, class: 'form-control', autofocus: true
+    .form-group
+      = album_form.label :description
+      = album_form.text_area :description, class: 'form-control'
 
   hr
   #images 
     = album_form.fields_for :images do |img_f|
-      - unless img_f.object.new_record?
-        .form-inputs
-          = image_tag img_f.object.send(:picture).send :url, :thumb 
-        .form-inputs
-          | Delete: 
-          = img_f.check_box :_destroy
+      .panel.panel-default
+        .panel-heading
+          | Image
+        .panel-body
+          - unless img_f.object.new_record?
+            .form-inputs
+              = image_tag img_f.object.send(:picture).send :url, :thumb 
+            .form-inputs
+              | Delete: 
+              = img_f.check_box :_destroy
+            br
 
-      = img_f.file_field :picture
-      .form-inputs
-        = img_f.text_field :description
-      hr 
+          .form-group
+            = img_f.label :picture, "#{img_f.object.new_record? ? 'Add' : 'Change'} picture"
+            = img_f.file_field :picture        
+          .form-group.form-inputs
+            = img_f.label :description, 'Title'
+            = img_f.text_field :description, class: 'form-control'
 
-    = link_to 'More Images', append_image_path, remote: true
-    hr
-
-    .form-actions
-      = album_form.submit
-
+  .form-actions
+    .btn-group
+      = link_to 'More Images', append_image_path, remote: true, class: 'btn'
+      = album_form.submit class: 'btn btn-primary'
+      = link_to 'Cancel', @album.new_record? ? albums_path : @album, class: 'btn btn-default'
 / = simple_form_for @album do |f| 
 /   = f.input :title
 /   = f.input :description
