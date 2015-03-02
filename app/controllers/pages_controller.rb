@@ -6,15 +6,27 @@ class PagesController < ApplicationController
   def show
   end
 
-  def welcome
-    # @page = Page.find_by title: 'welcome'
-    @page = Page.where("title like ?", "%welcome%").first
+  # def welcome
+  #   # @page = Page.find_by title: 'welcome'
+  #   @page = Page.where("title like ?", "%welcome%").first
+  #   if @page
+  #     render :show 
+  #   else
+  #     @page = Page.new title: 'Welcome' 
+  #     # redirect_to new_page_path, alert: 'Create a welcome page first!'
+  #     flash.now[:alert]= 'Create a welcome page first!'
+  #     render :new
+  #   end
+  # end
+
+  def show_or_set  
+    # like params[:id]
+    @page = Page.where("title like ?", "%about%").first
     if @page
       render :show 
     else
-      @page = Page.new title: 'Welcome' 
-      # redirect_to new_page_path, alert: 'Create a welcome page first!'
-      flash.now[:alert]= 'Create a welcome page first!'
+      @page = Page.new title: 'About'       
+      flash.now[:alert]= 'Create About page first!'
       render :new
     end
   end

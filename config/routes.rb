@@ -7,8 +7,8 @@ Rails.application.routes.draw do
     resources :images
   end
   get 'append_image' => 'albums#append_image'
+  get 'pages/about', to: 'pages#show_or_set'
   resources :pages, except: :index
-  
   # root 'pages#welcome'
   root 'albums#index'
   # The priority is based upon order of creation: first created -> highest priority.
