@@ -1,6 +1,7 @@
 class AlbumsController < ApplicationController
   before_action :set_album, only: [:show, :edit, :update, :destroy]
-
+  http_basic_authenticate_with name: 'admin', password: 'admin', except: [:show, :index]
+  
   # GET /albums
   def index
     @albums = Album.all
