@@ -42,8 +42,7 @@ class PagesController < ApplicationController
 
   # POST /pages  
   def create
-    @page = Page.new page_params
-
+    @page = Page.new page_params    
     respond_to do |format|
       if @page.save
         format.html { redirect_to @page, notice: 'Page was successfully created.' }
@@ -74,7 +73,7 @@ class PagesController < ApplicationController
 
   private
     def set_page
-      @page = Page.friendly.find params[:id]
+      @page = Page.friendly.find params[:id].to_s.downcase
     end
 
     def page_params
