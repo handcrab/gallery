@@ -14,7 +14,7 @@ html
         .navbar-header
           = link_to 'Simple Gallery', root_path, class: 'navbar-brand'
         ul.nav.navbar-nav
-          li(class="#{'active' if current_page?(albums_path)}")= link_to 'Albums', albums_path
+          - # li(class="#{'active' if current_page?(albums_path)}")= link_to 'Albums', albums_path
           li(class="#{'active' if current_page?('/pages/about')}")= link_to 'About', '/pages/about'
         ul.nav.navbar-nav.navbar-right
           = yield :navbar_right
@@ -22,15 +22,12 @@ html
     article.container    
       .row
         = render 'shared/notice'
-        / - if notice
-        /   p#notice= notice
-        / - if alert
-        /   p#alert= alert
 
         = yield
 
         = javascript_include_tag "//blueimp.github.io/Gallery/js/jquery.blueimp-gallery.min.js"
         = yield :bottom   
 
-    footer 
+    footer.footer
+      = yield :footer
           

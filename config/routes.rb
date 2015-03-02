@@ -9,7 +9,8 @@ Rails.application.routes.draw do
   get 'append_image' => 'albums#append_image'
   resources :pages, except: :index
   
-  root 'pages#welcome'
+  # root 'pages#welcome'
+  root 'albums#index'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

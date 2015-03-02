@@ -1,14 +1,16 @@
-.btn-group.controls
-  = link_to edit_album_path(@album), {class: "btn btn-warning btn-xs"} do
-    span.glyphicon.glyphicon-pencil(aria-hidden="true") Edit
-  = link_to @album, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger btn-xs" do
-    span.glyphicon.glyphicon-remove(aria-hidden="true") Destroy
-
 h1= @album.title
 p= @album.description
 
 = render @album.images
 = render 'shared/gallery'
 
-br
-= link_to 'Back to albums', albums_path
+- content_for :footer
+  = link_to '← Back to albums', albums_path
+
+  .btn-group.controls.gallery-controls
+    = link_to edit_album_path(@album), {class: "btn btn-warning btn-xs"} do
+      span.glyphicon.glyphicon-pencil(aria-hidden="true") 
+      | Edit
+    = link_to @album, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger btn-xs" do
+      span.glyphicon.glyphicon-remove(aria-hidden="true") 
+      | Destroy

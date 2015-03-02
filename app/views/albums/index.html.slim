@@ -1,5 +1,3 @@
-h1 All albums
-
 - @albums.each do |album|
     .article
       h1= link_to album.title, album     
@@ -16,4 +14,4 @@ h1 All albums
 = content_for :navbar_right
   = link_to 'New Album', new_album_path, class: 'btn btn-primary navbar-btn'
 
-= link_to 'New Album', new_album_path, class: 'btn btn-primary'
+-# link_to 'New Album', new_album_path, class: 'btn btn-primary'
