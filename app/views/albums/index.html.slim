@@ -1,17 +1,14 @@
 - @albums.each do |album|
     .article
-      h1= link_to album.title, album     
+      h1= link_to album.title, album
       p = album.description
 
       - if album.images.any?
         .images
-          = link_to album do         
+          = link_to album do
             - album.images.limit(3).each do |img|
-              = image_tag img.picture.url(:thumb) 
-
+              = image_tag img.picture.url(:thumb)
       hr
 
 = content_for :navbar_right
   = link_to 'New Album', new_album_path, class: 'btn btn-primary navbar-btn'
-
--# link_to 'New Album', new_album_path, class: 'btn btn-primary'

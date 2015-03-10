@@ -5,7 +5,7 @@ html
       | Gallery
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
     = stylesheet_link_tag "//blueimp.github.io/Gallery/css/blueimp-gallery.min.css"
-    = javascript_include_tag 'application', 'data-turbolinks-track' => true    
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
   body
 
@@ -19,15 +19,14 @@ html
         ul.nav.navbar-nav.navbar-right
           = yield :navbar_right
 
-    article.container    
+    article.container
       .row
         = render 'shared/notice'
 
         = yield
 
         = javascript_include_tag "//blueimp.github.io/Gallery/js/jquery.blueimp-gallery.min.js"
-        = yield :bottom   
+        = yield :bottom
 
     footer.footer
       = yield :footer
-          

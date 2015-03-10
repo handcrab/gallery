@@ -26,7 +26,7 @@
 
           .form-group
             = img_f.label :picture, "#{img_f.object.new_record? ? 'Add' : 'Change'} picture"
-            = img_f.file_field :picture        
+            = img_f.file_field :picture
           .form-group.form-inputs
             = img_f.label :description, 'Title'
             = img_f.text_field :description, class: 'form-control'

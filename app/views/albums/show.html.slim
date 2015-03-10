@@ -9,8 +9,8 @@ p= @album.description
 
   .btn-group.controls.gallery-controls
     = link_to edit_album_path(@album), {class: "btn btn-warning btn-xs"} do
-      span.glyphicon.glyphicon-pencil(aria-hidden="true") 
+      span.glyphicon.glyphicon-pencil(aria-hidden="true")
       | Edit
     = link_to @album, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger btn-xs" do
-      span.glyphicon.glyphicon-remove(aria-hidden="true") 
+      span.glyphicon.glyphicon-remove(aria-hidden="true")
       | Destroy
