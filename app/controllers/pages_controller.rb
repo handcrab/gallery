@@ -1,6 +1,6 @@
 class PagesController < ApplicationController
   before_action :set_page, only: [:show, :edit, :update, :destroy]
-  http_basic_authenticate_with name: 'admin', password: 'admin', except: [:show, :index]
+  http_basic_authenticate_with name: 'admin', password: 'admin', except: [:show, :index, :show_or_set]
   
   # GET /pages/1  
   def show
@@ -19,7 +19,7 @@ class PagesController < ApplicationController
   #   end
   # end
 
-  def show_or_set  
+  def show_or_set
     # like params[:id]
     @page = Page.where("title like ?", "%about%").first
     if @page
