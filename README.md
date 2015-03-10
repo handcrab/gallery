@@ -1,15 +1,14 @@
 Dummy gallery rails app #learning
 
 # Features
-- Static pages with seo names
 - User can create galleries with multiple images
   - Add image fields dynamically
+- Static pages with seo names
 
-# TODO  
-- Admin
-- Multilpe-file upload
+# TODO
 - Sortable images
-- ? Allow to see all images on albums page
+- Multilpe-file upload
+- ? Album preview on index page (carousel)
 
 # Setup
 `sudo apt-get install -y imagemagick`
