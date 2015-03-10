@@ -38,6 +38,7 @@ gem 'friendly_id', '~> 5.1.0'
 
 gem 'paperclip'
 gem 'bootstrap-sass'
+gem 'cocoon'
 
 group :development, :test do
   gem 'byebug'

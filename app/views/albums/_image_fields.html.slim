@@ -1,11 +1,20 @@
-= fields_for 'album[images_attributes]', @album.images.build, index: Time.now.to_i do |img_f|
+.nested-fields
   .panel.panel-default
     .panel-heading
       | Image
     .panel-body
+      - unless f.object.new_record?
+        .form-inputs
+          = image_tag f.object.send(:picture).send :url, :thumb 
+        / .form-inputs
+        /   | Mark do delete: 
+        /   = f.check_box :_destroy
       .form-group
-        = img_f.label :picture, 'Add picture'
-        = img_f.file_field :picture
+        = f.label :picture, "#{f.object.new_record? ? 'Add' : 'Change'} picture"
+        = f.file_field :picture
       .form-group.form-inputs
-        = img_f.label :description, 'Picture title'
-        = img_f.text_field :description, class: 'form-control'
+        = f.label :description, 'Picture title'
+        = f.text_field :description, class: 'form-control'
+
+    .panel-footer
+      = link_to_remove_association "Remove image", f

@@ -2,6 +2,7 @@
 # = require jquery_ujs
 # = require bootstrap-sprockets
 # = require js/bootstrap-image-gallery.min.js
+# = require cocoon
 # = require turbolinks
 # = require_tree .
 

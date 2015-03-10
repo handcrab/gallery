@@ -29,12 +29,12 @@ class AlbumsController < ApplicationController
     end
   end
 
-  def append_image
-    @album ||= Album.new
-    respond_to do |format|
-      format.js
-    end
-  end
+  # def append_image
+  #   @album ||= Album.new
+  #   respond_to do |format|
+  #     format.js
+  #   end
+  # end
 
   # POST /albums
   def create
